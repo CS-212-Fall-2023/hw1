@@ -24,24 +24,34 @@
 \begin{document}
 \maketitle
 
-
-For drawing finite automata, see  \href{https://www3.nd.edu/~kogge/courses/cse30151-fa17/Public/other/tikz_tutorial.pdf}{this TikZ guide} or \href{https://www.jflap.org}{the JFLAP tool}.
-
-Some of the problems below make use of the following count function.
+\section*{General instructions}
+\begin{itemize}
+\item For drawing finite automata, see  \href{https://www3.nd.edu/~kogge/courses/cse30151-fa17/Public/other/tikz_tutorial.pdf}{this TikZ guide} or \href{https://www.jflap.org}{the JFLAP tool}.
+\item For all problems below, $\Sigma=\{a,b\}$.
+\item Some of the problems below make use of the following count function.
 \[
     n_a(w) =  \text{the number of occurences of } a\text{ in } w, \text{ where } a\in\Sigma,w\in\Sigma^*.
 \]
+\end{itemize}
 
+\section*{Problems}
 \begin{questions}
 
-\question Given $\Sigma=\{a,b\}$, list 2 members and 2 non-members of the language, $(a \cup ba \cup bb)\Sigma^*$.
+\question List 2 members and 2 non-members of the language, $(a \cup ba \cup bb)\Sigma^*$.
 
-\question Given $\Sigma=\{a,b\}$, provide the state diagram of a DFA that recognizes the following language.
+\question Provide the state diagram of a DFA that recognizes the language, 
   \[
     A=\{w\in\Sigma^* \mid n_a{w} \ge 2, n_b(w) \le 1\}.
   \]
 
-\question Given $\Sigma=\{a,b\}$ and the languages, $A$ and $B$, we define the following operation.
+\question Given the languages, $A$ and $B$, we derive the language, $C = \{ w\in A \mid w \in B \}$.
+
+  Prove or disprove the following claim.
+  \begin{claim}
+    If $A$ and $B$ are regular, then so is $C$.
+  \end{claim}
+
+\question Given the languages, $A$ and $B$, we define the following operation.
   \[
     A\smile_a B = \{ u\in A \mid \exists v\in B \ni n_a(u) = n_a(v) \}
   \]
@@ -50,43 +60,6 @@ Some of the problems below make use of the following count function.
   \begin{claim}
     The class of regular languages is closed under $\smile_a$.
   \end{claim}
-
-  
-% \question[5] Below is the transition table of a finite automaton. $\implies$ indicates the starting state, and $*$ indicates accepting states. Provide a regular expression for the language recognized by this automaton.
-%   \[
-%   \begin{array}{r|cc}
-%     & 0 & 1 \\\hline
-%     p & \{ q \} & \emptyset \\
-%     \implies q & \{ q \} & \{ q, r \} \\
-%     *r & \emptyset & \{ s \} \\
-%     *s & \emptyset & \emptyset \\
-%   \end{array}
-%   \]
-  
-% \question
-%   \begin{parts}
-%   \part[5] Suggest regular languages $L_1$ and $L_2$ over $\{0,1\}$ such that
-%   \begin{enumerate}
-%   \item $L_1\not\subseteq L_2$,
-%   \item $L_2\not\subseteq L_1$, and
-%   \item $(L_1\cup L_2)^* = L_1^* \cup L_2^*$
-%   \end{enumerate}
-%   \part[5] Prove or disprove whether condition 3 above holds for any regular languages, $L_1$ and $L_2$.
-%   \end{parts}
-
-% \question[5] In class, we talked about the closure of the class, $A$, of regular languages under the union, concatenation, and star operations. In this question, we want to explore whether $A$ is also closed under intersection. That is, does the following hold?
-%   \[
-%     L_1\in A \land L_2\in A \implies L_1 \cap L_2\in A
-%   \]
-
-%   We want to go about it as follows. The expression, $L_1 \cap L_2$, can be transformed using DeMorgan's law to an equivalent one involving union, for which closure is known, and another operation. Show whether $A$ is closed under this operation, and use your result to argue about the closure of $A$ under intersection.
-
-% \question[5] We now want to explore the closure of the class, $A$, of regular languages under the operation, $mix$, which is defined as follows.
-%   \begin{itemize}
-%   \item Given strings, $u$ and $v$, both of length $n$, $mix(u,v) = u_1v_1u_2v_2\ldots u_nv_n$.
-%   \item Given languages, $L_1$ and $L_2$, $mix(L_1,L_2) = \{mix(u,v) \mid u\in L_1, v\in L_2, |u| = |v|\}$.
-%   \end{itemize}
-%   Is $A$ closed under $mix$? Justify your answer.
   
 \end{questions}
 
